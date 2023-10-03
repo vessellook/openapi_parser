@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    environment:
+      SQLITE_PATH: /data/db.sqlite3
+    volumes:
+      - "./.data:/data"
+    ports:
+      - "8000:8000"
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
